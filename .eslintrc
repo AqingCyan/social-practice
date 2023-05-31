@@ -1,0 +1,9 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "no-console": "warn",
+    "n/no-path-concat": "off",
+    "curly": ["error", "multi-line"],
+    "@typescript-eslint/consistent-type-imports": "off"
+  }
+}
