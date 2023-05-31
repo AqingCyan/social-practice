@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 // import { TypeOrmModule } from '@nestjs/typeorm'
 import { ServeStaticModule } from '@nestjs/serve-static'
+import { ChatGptModule } from './module/chat-gpt/chat-gpt.module'
 // import { handleDBConfig } from './helper'
 import { WeatherModule } from './module/weather/weather.module'
 import { ExpressageModule } from './module/expressage/expressage.module'
@@ -14,6 +15,7 @@ import { ExpressageModule } from './module/expressage/expressage.module'
     ServeStaticModule.forRoot({ rootPath: join(__dirname, 'static') }),
     WeatherModule,
     ExpressageModule,
+    ChatGptModule,
   ],
   providers: [],
 })
