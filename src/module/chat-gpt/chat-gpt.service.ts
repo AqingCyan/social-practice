@@ -1,16 +1,13 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
-import { ConfigService } from '@nestjs/config'
 import { Configuration, OpenAIApi } from 'openai'
 
 @Injectable()
 export class ChatGptService implements OnModuleInit {
   openai: OpenAIApi
 
-  constructor(private readonly configService: ConfigService) {}
-
   onModuleInit() {
     const configuration = new Configuration({
-      apiKey: this.configService.get<string>('OPENAI_API_KEY'),
+      apiKey: process.env.OPENAI_API_KEY,
     })
     this.openai = new OpenAIApi(configuration)
   }
