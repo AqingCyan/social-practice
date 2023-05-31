@@ -1,4 +1,5 @@
 import { Controller, Get, Query, UseInterceptors } from '@nestjs/common'
+import { ApiOperation, ApiParam } from '@nestjs/swagger'
 import { TransformResponseInterceptor } from '../../core/interceptors/transform-response.interceptor'
 import { ExpressageMapDto } from './expressage.dto'
 import { ExpressageService } from './expressage.service'
@@ -13,6 +14,8 @@ export class ExpressageController {
    * @param num
    */
   @Get('/expressRoad')
+  @ApiOperation({ summary: '根据根据快递单号查询物流信息' })
+  @ApiParam({ name: 'courierNumber', description: '快递单号' })
   recognitionExpress(@Query('courierNumber') num: string) {
     return this.expressageService.expressRoad(num)
   }
@@ -22,6 +25,7 @@ export class ExpressageController {
    * @param param
    */
   @Get('/expressMap')
+  @ApiOperation({ summary: '根据快递单号快递查询地图轨迹' })
   findExpressMap(@Query() param: ExpressageMapDto) {
     return this.expressageService.expressMap(param)
   }

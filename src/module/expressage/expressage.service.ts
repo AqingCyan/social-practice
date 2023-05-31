@@ -58,7 +58,7 @@ export class ExpressageService {
    * @param param
    */
   async expressMap(param: ExpressageMapDto) {
-    const sign = this.md5(JSON.stringify(param) + this.privateKey + this.customer).toUpperCase()
+    const sign = this.md5(JSON.stringify({ ...param, mapConfigKey: 'BHDyNJhRNJTB2k1G96' }) + this.privateKey + this.customer).toUpperCase()
     const { data } = await firstValueFrom(
       this.httpService.post<ExpressInfo>(
         'https://poll.kuaidi100.com/poll/maptrack.do',
