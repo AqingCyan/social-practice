@@ -1,10 +1,11 @@
 import { Controller, Get, Query, UseInterceptors } from '@nestjs/common'
-import { ApiOperation, ApiQuery } from '@nestjs/swagger'
+import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger'
 import { TransformResponseInterceptor } from '../../core/interceptors/transform-response.interceptor'
 import { ExpressageMapDto } from './expressage.dto'
 import { ExpressageService } from './expressage.service'
 
 @Controller('expressage')
+@ApiTags('快递查询')
 @UseInterceptors(TransformResponseInterceptor)
 export class ExpressageController {
   constructor(private readonly expressageService: ExpressageService) {}

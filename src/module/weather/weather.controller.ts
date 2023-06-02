@@ -1,9 +1,10 @@
 import { Controller, Get, Query, UseInterceptors } from '@nestjs/common'
-import { ApiOperation, ApiQuery } from '@nestjs/swagger'
+import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger'
 import { TransformResponseInterceptor } from '../../core/interceptors/transform-response.interceptor'
 import { WeatherService } from './weather.service'
 
 @Controller('weather')
+@ApiTags('天气查询')
 @UseInterceptors(TransformResponseInterceptor)
 export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}

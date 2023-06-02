@@ -1,5 +1,6 @@
-import { Body, Controller, Post } from '@nestjs/common'
-import { ApiOperation, ApiProperty } from '@nestjs/swagger'
+import { Body, Controller, Post, UseInterceptors } from '@nestjs/common'
+import { ApiOperation, ApiProperty, ApiTags } from '@nestjs/swagger'
+import { TransformResponseInterceptor } from '../../core/interceptors/transform-response.interceptor'
 import { ChatGptService } from './chat-gpt.service'
 
 class GPTDto {
@@ -8,6 +9,8 @@ class GPTDto {
 }
 
 @Controller('chat-gpt')
+@ApiTags('Chat-GPT')
+@UseInterceptors(TransformResponseInterceptor)
 export class ChatGptController {
   constructor(private readonly chatGptService: ChatGptService) {}
 
