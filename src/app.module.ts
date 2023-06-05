@@ -7,6 +7,7 @@ import { ChatGptModule } from './module/chat-gpt/chat-gpt.module'
 // import { handleDBConfig } from './helper'
 import { WeatherModule } from './module/weather/weather.module'
 import { ExpressageModule } from './module/expressage/expressage.module'
+import { NewsModule } from './module/news/news.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ExpressageModule } from './module/expressage/expressage.module'
     WeatherModule,
     ExpressageModule,
     ChatGptModule,
+    NewsModule,
   ],
   providers: [],
 })
